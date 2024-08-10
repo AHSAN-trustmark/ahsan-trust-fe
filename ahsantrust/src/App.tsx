@@ -8,13 +8,13 @@ import Header from "components/common/Header";
 
 function App() {
   return (
-    <main id="app">
+    <div className="px-3">
       <Navbar />
       <Header />
       <Store />
       <CTA />
       <Footer />
-    </main>
+    </div>
   );
 }
 

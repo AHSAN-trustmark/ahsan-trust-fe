@@ -3,10 +3,16 @@ import { FaChevronRight, FaChevronLeft } from "react-icons/fa";
 import { categoryFilters } from "../lib/data";
 import { getStoreData } from "../services/AxiosClient";
 import { Store } from "../type";
+import { useNavigate } from "react-router-dom";
 
 const Stores = () => {
   const [stores, setStores] = useState<Store[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const navigate = useNavigate();
+
+  const handleCardClick = (id: string) => {
+    navigate(`/stores/${id}`);
+  };
 
   useEffect(() => {
     const fetchStores = async () => {
@@ -76,12 +82,13 @@ const Stores = () => {
       <div className="card-container mt-8 flex gap-12">
         {visibleStores.map((store) => (
           <div className="card" key={store.id}>
-            {/* <Link href={`/store/${store.id}`}> */}
+            <div
+              key={store.id}
+              className="card cursor-pointer"
+              onClick={() => handleCardClick(store.id)}
+            >
               <div className="card-img">
                 <img src={store.images_url} alt={store.name} />
-                <div className="card-status cursor-pointer">
-                  {/* <Status status={} /> */}
-                </div>
               </div>
               <div className="card-description mt-5">
                 <h3 className="text-normalBlackText cursor-pointer">
@@ -89,7 +96,7 @@ const Stores = () => {
                 </h3>
                 <p className="text-normalGreyText">{store.categories}</p>
               </div>
-            {/* </Link> */}
+            </div>
           </div>
         ))}
       </div>

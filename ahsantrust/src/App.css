@@ -195,7 +195,6 @@ body {
 /* card-img */
 
 .card-container {
-  overflow: auto;
   max-width: 1400px;
 }
 
@@ -204,7 +203,7 @@ body {
 }
 
 .card-img {
-  width: 340px;
+  width: 325px;
   height: 382px;
   border-radius: 24px;
   position: relative;

@@ -4,7 +4,15 @@ import { FaEllipsisH } from "react-icons/fa";
 
 export const links = [
   {
-    name: "Stores",
+    name: "Home",
+    hash: "/",
+  },
+  {
+    name: "News",
+    hash: "#",
+  },
+  {
+    name: "Store",
     hash: "#",
   },
   {
@@ -43,75 +51,35 @@ export const categoryFilters = [
   },
 ] as const;
 
-export const users = [
+export const data = [
   {
-    id: "1",
-    Image: "/assets/owner.jpg",
-    Name: "Lobby Cafe",
-    Occupation: "Youtuber, Programmer",
-
-    storesInfo: {
-      store: {
-        id: "1",
-        storeImage: "/assets/LobbyCafe.jpeg",
-        description: "",
-        status: "Popular",
-        storeName: "Lobby Cafe",
-        location: "Yala",
-        category: "Cafe",
-      },
-    },
+    title: "Value",
+    items: [
+      "Local Wisdom Value",
+      "Local Lifestyle Value",
+      "Community Support Value",
+    ],
   },
   {
-    id: "2",
-    Image: "/assets/owner.jpg",
-    Name: "Make Cafe",
-    Occupation: "Youtuber, Programmer",
-
-    storesInfo: {
-      store: {
-        id: "2",
-        storeImage: "/assets/makecafe.jpeg",
-        status: "Popular",
-        storeName: "Make Cafe Yala",
-        location: "Yala",
-        category: "Cafe",
-      },
-    },
+    title: "Quality",
+    items: [
+      "International Production Standards",
+      "Quality of Raw Materials",
+      "Product Safety Quality",
+    ],
   },
   {
-    id: "3",
-    Image: "/assets/owner.jpg",
-    Name: "ขนมหวานน้ำตาลไหม้",
-    Occupation: "Youtuber, Programmer",
-    PhoneNumber: "0774501852",
-    storesInfo: {
-      store: {
-        id: "3",
-        storeImage: "/assets/ขนมหวาน.jpeg",
-        status: "Popular",
-        storeName: "ขนมหวานน้ำตาลไหม้",
-        location: "Yala",
-        category: "Cafe",
-      },
-    },
+    title: "Ethics",
+    items: [
+      "Fairness Ethics",
+      "Islamic Compliance Ethics",
+      "Environmental Ethics",
+      "Local Labor Support Ethics",
+    ],
   },
   {
-    id: "4",
-    Image: "/assets/owner.jpg",
-    Name: "Salam",
-    Occupation: "Youtuber, Programmer",
-
-    storesInfo: {
-      store: {
-        id: "4",
-        storeImage: "/assets/StoreImage.webp",
-        status: "Popular",
-        storeName: "Hijabi Al Halumi",
-        location: "Yala",
-        category: "Clothes",
-      },
-    },
+    title: "Benefit",
+    items: ["Health Benefits", "Social Benefits"],
   },
 ];
 

@@ -1,5 +1,5 @@
 export interface Store {
-  id: number;
+  id: string;
   images_url: string;
   name: string;
   details: string;
