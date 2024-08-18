@@ -5,6 +5,7 @@ import Navbar from "components/common/Navbar";
 import Footer from "components/common/Footer";
 import "./index.css";
 import Header from "components/common/Header";
+import AhsanTrustNews from "pages/AhsanTrustNews";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Navbar />
       <Header />
       <Store />
+      <AhsanTrustNews />
       <CTA />
       <Footer />
     </div>

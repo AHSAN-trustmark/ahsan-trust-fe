@@ -1,14 +1,12 @@
 import { links } from "../../lib/data";
 import AhsanTrustLogo from "../shared/ahsanTrustLogo";
-import { IoMdMenu } from "react-icons/io";
-import LeftImage from "@assets/LeftImage.png";
+// import { IoMdMenu } from "react-icons/io";
 
-function Navbar() {
+function NavbarImg() {
   return (
-    <nav className="flex justify-between items-center flex-row pt-5">
-      <img src={LeftImage} alt="" className="absolute right-0.5 top-0 h-4/5" />
+    <nav className="flex items-center justify-between w-full p-2">
       <AhsanTrustLogo />
-      <div className="flex items-center gap-5 ul-nav">
+      <div className="flex items-center gap-10 ul-nav">
         <ul className="flex items-center gap-3 z-10">
           {links.map((link, index) => (
             <li
@@ -34,10 +32,9 @@ function Navbar() {
             English
           </a>
         </div>
-        <IoMdMenu />
       </div>
     </nav>
   );
 }
 
-export default Navbar;
+export default NavbarImg;

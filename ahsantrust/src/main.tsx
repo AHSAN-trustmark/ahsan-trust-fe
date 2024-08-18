@@ -2,9 +2,11 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import App from "./App.tsx";
 import "./index.css";
-import StoresCard from "components/StoreCard.tsx";
+import StoresCard from "components/StoreCard";
 import Stores from "pages/Stores.tsx";
+import AhsanTrustNews from "pages/AhsanTrustNews";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import NewsDetail from "components/NewsDetail";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -13,6 +15,8 @@ createRoot(document.getElementById("root")!).render(
         <Route path="/" element={<App />} />
         <Route path="/stores" element={<Stores />} />
         <Route path="/stores/:id" element={<StoresCard />} />
+        <Route path="/news/:id" element={<NewsDetail />} />
+        <Route path="/news" element={<AhsanTrustNews />} />
       </Routes>
     </Router>
   </StrictMode>

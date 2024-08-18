@@ -3,9 +3,7 @@ import { useParams } from "react-router-dom";
 import { getStoreById } from "services/AxiosClient";
 import { Store } from "type";
 import AhsanLogo from "@assets/AhsanTrustLogo.png";
-import { data, links, partnership } from "lib/data";
-import AhsanTrustLogo from "./shared/ahsanTrustLogo";
-import fabric from "@assets/fabric-ahsan.png";
+import NavbarImg from "./common/Navbar-wo";
 const StoresCard = () => {
   const [store, setStore] = useState<Store | null>(null);
   const { id } = useParams<{ id: string }>();
@@ -25,145 +23,120 @@ const StoresCard = () => {
 
   if (!store) return <div>No store found</div>;
 
+  const sections = [
+    { title: "Values", items: store.values },
+    { title: "Qualities", items: store.qualities },
+    { title: "Ethics", items: store.ethics },
+    { title: "Benefits", items: store.benefits },
+  ];
+
   return (
-    <div
-      className="bg-gray-50 h-screen w-screen"
-      style={{
-        backgroundImage: `url(${fabric})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-    >
-      <div
-        className="absolute inset-0"
-        style={{
-          backdropFilter: "blur(10px)",
-          WebkitBackdropFilter: "blur(10px)",
-        }}
-      >
-        <nav className="flex justify-between items-center flex-row p-5">
-          <AhsanTrustLogo />
-          <div className="flex items-center gap-5 ul-nav">
-            <ul className="flex items-center gap-2 z-10">
-              {links.map((link, index) => (
-                <li
-                  key={index}
-                  className="bg-transparent px-6 py-2 rounded-full border border-solid border-rgba-74-75-81-30 cursor-pointer"
-                  style={{ backdropFilter: "blur(5px)" }}
-                >
-                  <a
-                    href="/"
-                    className="text-base font-semibold leading-tight text-brown"
-                  >
-                    {link.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-
-            <div className="z-10">
-              {/* <a
-                href="/"
-                className=" py-3 px-6 bg-lightBlue rounded-full text-darkBlue text-base font-semibold leading-22"
-              >
-                English
-              </a> */}
-            </div>
+    <div className="h-screen w-screen flex flex-col items-center gap-10">
+      <NavbarImg />
+      <div className="certificate bg-blue-100 bg-opacity-70 p-5 flex flex-col gap-4 w-fit items-center rounded-md border border-blue-300 shadow-2xl">
+        <div className="flex gap-5">
+          <div className="leftside">
+            <img
+              src={store.images_url}
+              alt={store.name}
+              className="w-96 h-80 object-cover rounded-br-3xl"
+            />
           </div>
-        </nav>
-        <div className="bg-blue-50 rounded-2xl relative w-5/6 ml-28 mt-4 bg-opacity-60">
-          <nav className="m-1 flex items-center justify-between">
-            <div className="flex items-center gap-2 m-2 justify-between">
-              {partnership.map((partner, index) => (
-                <img
-                  src={partner.url}
-                  key={index}
-                  width={60}
-                  height={60}
-                  alt="partnership"
-                />
-              ))}
-            </div>
-            <div className="flex items-center px-2">
-              <img src={AhsanLogo} width={55} height={55} alt="ahsan logo" />
-            </div>
-          </nav>
-          <div className="flex p-14 gap-12">
-            <div className="">
-              <div className="rounded-3xl items-center w-96 object-cover bg-blue-400">
-                <img
-                  src={store.images_url}
-                  alt={store.name}
-                  className="h-96 w-full object-cover rounded-3xl"
-                />
+          <div className="rightside flex flex-col gap-5">
+            <div className="certified">
+              <div className="logo-box flex gap-4 items-center">
+                <article className="text-balance text-blue-950 text-2xl font-semibold py-3">
+                  This product is certified by AHSAN Trustmark
+                </article>
+                <img src={AhsanLogo} width={80} height={55} alt="ahsan logo" />
               </div>
-              <h1 className="text-2xl text-center mt-8 text-darkBlue font-semibold bg-blue-200 rounded-lg">
-                Excellence in Every Product
-              </h1>
             </div>
-
-            <div>
-              <h1 className="text-5xl font-semibold leading-50 bg-blue-950 text-white mb-4 absolute top-0 p-5 w-fit">
-                {store.name}
-              </h1>
-              <div className="grid grid-cols-2 text-md gap-1">
-                <span>
+            <div className="infomation text-md bg-slate-400 bg-opacity-30 rounded-md p-2 flex gap-5">
+              {store.logo && (
+                <img
+                  src={store.logo}
+                  alt={store.name}
+                  height={100}
+                  width={200}
+                  className=""
+                />
+              )}
+              <div className="store-detail flex flex-col justify-center gap-2">
+                <p>
+                  <span className="text-darkBlue font-semibold">
+                    Store name:{" "}
+                  </span>
+                  {store.name}
+                </p>
+                <p>
                   <span className="text-darkBlue font-semibold">
                     Product type:{" "}
                   </span>
                   {store.categories}
-                </span>
-                <span>
+                </p>
+                <p>
                   <span className="text-darkBlue font-semibold">Address:</span>{" "}
                   {store.location}
-                </span>
+                </p>
+
                 <p>
                   <span className="text-darkBlue font-semibold">Contact :</span>{" "}
+                  {store.phone}
                 </p>
+                {store.facebook && (
+                  <p>
+                    <span className="text-darkBlue font-semibold">
+                      Facebook :
+                    </span>{" "}
+                    {store.facebook}
+                  </p>
+                )}
+
                 <p>
-                  <span className="text-darkBlue font-semibold">
-                    Facebook :
-                  </span>{" "}
-                </p>
-                <span>
                   <span className="text-darkBlue font-semibold">
                     Active date:
                   </span>{" "}
-                </span>
-                <p>
-                  <span className="text-darkBlue font-semibold">
-                    Instagram :
-                  </span>{" "}
+                  {store.ActiveDate}
                 </p>
-              </div>
-              <div className="grid grid-cols-2 gap-7 pt-12 ">
-                {data.map((section, index) => (
-                  <div key={index}>
-                    <p className="bg-blue-950 text-white p-1 w-2/3 text-center rounded-xl">
-                      {section.title}
-                    </p>
-                    {section.items.map((item, itemIndex) => (
-                      <p key={itemIndex} className="pl-2 pt-1 flex gap-2">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="20"
-                          height="20"
-                          color="#4Fdf4f"
-                          fill="currentColor"
-                          className="bi bi-check2-circle pt-1"
-                          viewBox="0 0 16 16"
-                        >
-                          <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0" />
-                          <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0z" />
-                        </svg>
-                        {item}
-                      </p>
-                    ))}
-                  </div>
-                ))}
+                {store.instagram && (
+                  <p>
+                    <span className="text-darkBlue font-semibold">
+                      Instagram :
+                    </span>{" "}
+                    {store.instagram}
+                  </p>
+                )}
               </div>
             </div>
           </div>
+        </div>
+        <div className="grid grid-cols-2 gap-3 mt-2">
+          {sections.map((section, index) => (
+            <div
+              key={index}
+              className="bg-white bg-opacity-50 rounded-xl shadow-lg p-4"
+            >
+              <p className="bg-blue-950 bg-opacity-90 text-white text-center rounded-xl p-2 mb-2">
+                {section.title}
+              </p>
+              {section.items.map((item, itemIndex) => (
+                <p key={itemIndex} className="flex items-center gap-2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    fill="currentColor"
+                    className="bi bi-check2-circle text-green-600"
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0" />
+                    <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0z" />
+                  </svg>
+                  <p className="text-gray-700 text-sm">{item}</p>
+                </p>
+              ))}
+            </div>
+          ))}
         </div>
       </div>
     </div>

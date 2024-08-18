@@ -1,5 +1,4 @@
 import { partnership } from "lib/data";
-import { HiMiniMapPin } from "react-icons/hi2";
 
 function Header() {
   return (
@@ -28,7 +27,7 @@ function Header() {
             fostering the growth and sustainability of local businesses.
           </p>
         </div>
-        <form className="input-area">
+        {/* <form className="input-area">
           <input
             type="text"
             placeholder="Search for the shop you want!         "
@@ -37,7 +36,7 @@ function Header() {
             <HiMiniMapPin className="w-6 h-6" />
           </button>
           <button className="Button">Search {" >"}</button>
-        </form>
+        </form> */}
         <div className="mt-4">
           <p className="text-lightGrey font-normal text-base">
             Our Partnership

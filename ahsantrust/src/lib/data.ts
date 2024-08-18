@@ -1,6 +1,6 @@
 import { RiTShirt2Fill } from "react-icons/ri";
-import { MdFastfood } from "react-icons/md";
 import { FaEllipsisH } from "react-icons/fa";
+import { LuNewspaper } from "react-icons/lu";
 
 export const links = [
   {
@@ -9,11 +9,11 @@ export const links = [
   },
   {
     name: "News",
-    hash: "#",
+    hash: "/news",
   },
   {
     name: "Store",
-    hash: "#",
+    hash: "/stores",
   },
   {
     name: "About Us",
@@ -23,7 +23,7 @@ export const links = [
 
 export const partnership = [
   {
-    url: "https://pmua.or.th/wp-content/uploads/2023/12/Logo-mhesi.webp",
+    url: "https://www.oap.go.th/wp-content/uploads/2024/01/Artwork_Logo_MHESI_final_27_04_2564_-01.png",
   },
   {
     url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvEk8tkGvrxSe-s_vNasCNAiFFyow5qOsvkg&s",
@@ -38,12 +38,12 @@ export const partnership = [
 
 export const categoryFilters = [
   {
-    categoryName: "Clothes",
+    categoryName: "Shop",
     icon: RiTShirt2Fill,
   },
   {
-    categoryName: "Food",
-    icon: MdFastfood,
+    categoryName: "News",
+    icon: LuNewspaper,
   },
   {
     categoryName: "Other Stuff",
@@ -51,42 +51,10 @@ export const categoryFilters = [
   },
 ] as const;
 
-export const data = [
-  {
-    title: "Value",
-    items: [
-      "Local Wisdom Value",
-      "Local Lifestyle Value",
-      "Community Support Value",
-    ],
-  },
-  {
-    title: "Quality",
-    items: [
-      "International Production Standards",
-      "Quality of Raw Materials",
-      "Product Safety Quality",
-    ],
-  },
-  {
-    title: "Ethics",
-    items: [
-      "Fairness Ethics",
-      "Islamic Compliance Ethics",
-      "Environmental Ethics",
-      "Local Labor Support Ethics",
-    ],
-  },
-  {
-    title: "Benefit",
-    items: ["Health Benefits", "Social Benefits"],
-  },
-];
-
 export const news = [
   {
     id: 1,
-    image: "/assets/Image1.png",
+    image: "",
     title: "The things we need to check when we want to buy a house",
     body: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia aspernatur",
     date: "4 min read | 25 Apr 2021",
