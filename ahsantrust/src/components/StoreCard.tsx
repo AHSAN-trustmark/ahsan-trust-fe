@@ -46,7 +46,8 @@ const StoresCard = () => {
             <div className="certified">
               <div className="logo-box flex gap-4 items-center">
                 <article className="text-balance text-blue-950 text-2xl font-semibold py-3">
-                  This product is certified by AHSAN Trustmark
+                  <p>สินค้าชนิดนี้ได้รับเครื่องหมายรับรองมาตรฐาน</p>
+                  <p>AHSAN Trustmark Excellence in Every Product</p>
                 </article>
                 <img src={AhsanLogo} width={80} height={55} alt="ahsan logo" />
               </div>
@@ -64,48 +65,57 @@ const StoresCard = () => {
               <div className="store-detail flex flex-col justify-center gap-2">
                 <p>
                   <span className="text-darkBlue font-semibold">
-                    Store name:{" "}
+                    ชื่อร้าน:{" "}
                   </span>
                   {store.name}
                 </p>
                 <p>
                   <span className="text-darkBlue font-semibold">
-                    Product type:{" "}
+                    ชนิดสินค้า:{" "}
                   </span>
                   {store.categories}
                 </p>
                 <p>
-                  <span className="text-darkBlue font-semibold">Address:</span>{" "}
+                  <span className="text-darkBlue font-semibold">
+                    ที่ตั้งร้าน:
+                  </span>{" "}
                   {store.location}
                 </p>
-
-                <p>
-                  <span className="text-darkBlue font-semibold">Contact :</span>{" "}
-                  {store.phone}
-                </p>
+                {store.phone && (
+                  <p>
+                    <span className="text-darkBlue font-semibold">
+                      ติดต่อ :
+                    </span>{" "}
+                    {store.phone}
+                  </p>
+                )}
                 {store.facebook && (
                   <p>
                     <span className="text-darkBlue font-semibold">
                       Facebook :
                     </span>{" "}
-                    {store.facebook}
+                    <a href={store.facebook} className="text-blue-500 ">
+                      {store.name}
+                    </a>
                   </p>
                 )}
 
+                {store.instagram && (
+                  <p>
+                    <span className="text-darkBlue font-semibold">
+                      Instagram :
+                    </span>{" "}
+                    <a href={store.instagram} className="text-blue-500 ">
+                      {store.name}
+                    </a>
+                  </p>
+                )}
                 <p>
                   <span className="text-darkBlue font-semibold">
                     Active date:
                   </span>{" "}
                   {store.ActiveDate}
                 </p>
-                {store.instagram && (
-                  <p>
-                    <span className="text-darkBlue font-semibold">
-                      Instagram :
-                    </span>{" "}
-                    {store.instagram}
-                  </p>
-                )}
               </div>
             </div>
           </div>

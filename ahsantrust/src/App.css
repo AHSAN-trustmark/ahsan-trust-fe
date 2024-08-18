@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -423,6 +424,8 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+
 
 /* Responsiveness
 
