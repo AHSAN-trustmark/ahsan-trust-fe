@@ -85,6 +85,19 @@ module.exports = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      width: {
+        128: "32rem", // Add larger custom width (128)
+        144: "36rem", // Add larger custom width (144)
+        160: "40rem",
+        400: "100rem", // Add larger custom width (160)
+        // You can add more custom sizes as needed
+      },
+      height: {
+        128: "32rem", // Add larger custom height (128)
+        144: "36rem", // Add larger custom height (144)
+        160: "40rem",
+        400: "100rem",
+      },
     },
   },
 };
