@@ -17,7 +17,7 @@ function Navbar() {
               style={{ backdropFilter: "blur(5px)" }}
             >
               <a
-                href="/"
+                href={link.hash}
                 className="text-base font-semibold leading-tight text-brown"
               >
                 {link.name}
