@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { useParams, useNavigate } from "react-router-dom";
-import { getStoreById, getStoreData } from "services/AxiosClient";
-import { Store } from "type";
+import { getProductById, getStoreById, getStoreData } from "services/AxiosClient";
+import { Product, Store } from "type";
 
 export function StoreFooter() {
   const [stores, setStores] = useState<Store | null>(null);
   const [storeCard, setStoreCard] = useState<Store[]>([]);
+  const [product, setProduct] = useState<Product | null>(null);
   const { id } = useParams<{ id: string }>();
   const [currentIndex, setCurrentIndex] = useState(0);
   const navigate = useNavigate();
@@ -14,18 +15,22 @@ export function StoreFooter() {
   useEffect(() => {
     const fetchStores = async () => {
       try {
-        const data = await getStoreById(id!);
-        setStores(data);
-        console.log("data card", data);
+        const Storedata = await getStoreById(id!);
+        setStores(Storedata);
+        console.log("data card", Storedata);
       } catch (error) {
         console.error("Error fetching stores:", error);
       }
     };
+    
+
     fetchStores();
   }, [id]);
 
+
+
   const handleCardClick = (id: string) => {
-    navigate(`/stores/${id}`);
+    navigate(`/product/${id}`);
   };
 
   const slideLeft = () => {
@@ -68,12 +73,15 @@ export function StoreFooter() {
               className="card cursor-pointer bg-blue-50 p-3 rounded-md"
               onClick={() => handleCardClick(stores.id)}
             >
-              <span className="flex gap-5">
+              <span className="flex flex-col gap-2 justify-center">
                 <img
-                  src={stores.images_url}
+                  src={product?.images[0]}
                   alt={stores.name}
                   className="w-32 h-32 object-cover rounded-lg"
                 />
+                {product &&
+                     <p className="text-center text-xs">{product.details}</p>
+                }   
               </span>
             </div>
           </div>

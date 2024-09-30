@@ -12,8 +12,8 @@ export const links = [
     hash: "/news",
   },
   {
-    name: "Store",
-    hash: "/stores",
+    name: "Product",
+    hash: "/product",
   },
   {
     name: "About Us",
@@ -38,7 +38,7 @@ export const partnership = [
 
 export const categoryFilters = [
   {
-    categoryName: "Shop",
+    categoryName: "Products",
     icon: RiTShirt2Fill,
   },
   {

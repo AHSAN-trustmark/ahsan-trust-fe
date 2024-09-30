@@ -1,5 +1,5 @@
 import axios from "axios";
-import { News, Store } from "../type";
+import { News, Product, Store } from "../type";
 
 const API_URL = import.meta.env.VITE_API_URL || "";
 
@@ -21,6 +21,28 @@ export const getStoreData = async () => {
   }
 };
 
+export const getProduct = async () => {
+  try {
+    const response = await api.get("/products/products/");
+    console.log(response);
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching product data:", error);
+    throw error;
+  }
+};
+
+export const getProductById = async (id: string): Promise<Product> => {
+  try {
+    const response = await api.get(`/products/products/${id}`);
+    const productData = response.data;
+    return productData;
+  } catch (error) {
+    console.error("Error fetching store data:", error);
+    throw error;
+  }
+};
+
 export const getStoreById = async (id: string): Promise<Store> => {
   try {
     const response = await api.get(`stores/${id}`);
@@ -34,7 +56,7 @@ export const getStoreById = async (id: string): Promise<Store> => {
 
 export const getNewsData = async () => {
   try {
-    const response = await api.get("/news");
+    const response = await api.get("news/");
     console.log(response);
     return response.data;
   } catch (error) {

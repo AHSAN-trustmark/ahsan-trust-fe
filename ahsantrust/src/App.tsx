@@ -1,5 +1,5 @@
 import "./App.css";
-import Store from "./pages/Stores";
+import Store from "./pages/Products";
 import CTA from "./pages/CTA";
 import Navbar from "components/common/Navbar";
 import Footer from "components/common/Footer";
