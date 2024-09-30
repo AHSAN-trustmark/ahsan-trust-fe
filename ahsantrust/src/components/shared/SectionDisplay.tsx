@@ -1,14 +1,10 @@
 import { useState } from "react";
-
-// Define the type for sections
-interface Section {
-  title: string;
-  items: string[];
-}
-
-interface SectionDisplayProps {
-  sections: Section[];
-}
+import { motion } from "framer-motion"; 
+import { SectionDisplayProps } from "type";
+import { IoMdArrowDropdown } from "react-icons/io";
+import { IoMdArrowDropup } from "react-icons/io";
+import { RiProgress3Line } from "react-icons/ri";
+import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 
 const SectionDisplay: React.FC<SectionDisplayProps> = ({ sections }) => {
   const [selectedSection, setSelectedSection] = useState<number | null>(null); 
@@ -18,34 +14,43 @@ const SectionDisplay: React.FC<SectionDisplayProps> = ({ sections }) => {
   };
 
   return (
-    <div>
+<div>
       {sections.map((section, index) => (
-        <div key={index} className="flex flex-col border cursor-pointer m-2 rounded-lg p-2"  onClick={() => handleSectionClick(index)} >
-          <p
-            className=""
-           
-          >
-            {section.title}
-          </p>
+        <div
+          key={index}
+          className="flex flex-col border cursor-pointer m-2 rounded-2xl p-2"
+          onClick={() => handleSectionClick(index)}
+        >
+          {/* Section title */}
+          <span className="flex items-center gap-2">
+          {selectedSection === index ? (
+              <IoMdArrowDropup /> 
+            ) : (
+              <IoMdArrowDropdown /> 
+            )}
+          <span className="text-darkBlue"> {section.title}</span>
+          </span>
           {selectedSection === index && (
-            <div>
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.5 }}
+            >
               {section.items.map((item, itemIndex) => (
                 <p key={itemIndex} className="flex items-center gap-2">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    fill="currentColor"
-                    className="bi bi-check2-circle text-green-600"
-                    viewBox="0 0 16 16"
-                  >
-                    <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0" />
-                    <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0z" />
-                  </svg>
-                  <span className="text-gray-700 text-sm">{item}</span>
+                  {item.includes("(In progress)") ? (
+                    <RiProgress3Line className="text-red-500" />
+                  ) : (
+                    <IoMdCheckmarkCircleOutline className="text-green-500"/>
+                  )}
+                  <span className={`text-sm ${item.includes("(In progress)") ? "text-red-500 " : "text-gray-700"}`}>
+                    {item}
+                  </span>
                 </p>
               ))}
-            </div>
+            </motion.div>
           )}
         </div>
       ))}

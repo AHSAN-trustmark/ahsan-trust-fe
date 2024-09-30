@@ -36,3 +36,12 @@ export interface ProductImage {
   id: number;
   image_url: string;
 }
+
+export interface Section {
+  title: string;
+  items: string[];
+}
+
+export interface SectionDisplayProps {
+  sections: Section[];
+}

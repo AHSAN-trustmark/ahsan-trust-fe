@@ -93,11 +93,16 @@ module.exports = {
         // You can add more custom sizes as needed
       },
       height: {
-        128: "32rem", // Add larger custom height (128)
+        100: "28rem",
+        128: "32rem",
+        130: "34rem", // Add larger custom height (128)
         144: "36rem", // Add larger custom height (144)
         160: "40rem",
         400: "100rem",
       },
+      // maxHeight: {
+      //   '32rem': '32rem', 
+      // },
     },
   },
 };
