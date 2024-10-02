@@ -10,10 +10,16 @@ const ProductGallery = ({ images }: { images: string[] }) => {
   
 
   return (
-    <div className="flex">
-      {/* Thumbnails */}
+    <div className="flex gap-5">
+      <div className="ml-4">
+        <img
+          src={selectedImage}
+          alt="Selected"
+          className="w-96 h-96 object-cover rounded-lg"
+        />
+      </div>
       <div
-        className="flex flex-col gap-2 max-h-[24rem] overflow-y-auto mt-3" 
+        className="flex flex-col gap-2 max-h-[24rem] overflow-y-auto" 
         style={{ scrollbarWidth: 'thin', scrollbarColor: '#D1D5DB #F3F4F6' }} 
       >
         {images.map((image, index) => (
@@ -27,15 +33,6 @@ const ProductGallery = ({ images }: { images: string[] }) => {
             onClick={() => setSelectedImage(image)} 
           />
         ))}
-      </div>
-
-      {/* Main Image */}
-      <div className="ml-4">
-        <img
-          src={selectedImage}
-          alt="Selected"
-          className="w-96 h-96 object-cover rounded-lg"
-        />
       </div>
     </div>
   );

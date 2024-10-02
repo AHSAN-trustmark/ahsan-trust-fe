@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { getProductById, getStoreById } from "services/AxiosClient";
 import { Product, Store } from "type";
 import NavbarImg from "./common/Navbar-wo";
@@ -15,6 +15,7 @@ const StoresCard = () => {
   const [store, setStore] = useState<Store | null>(null); 
   const [product, setProduct] = useState<Product | null>(null); 
   const { id } = useParams<{ id: string }>();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchProductAndStore = async () => {
@@ -49,6 +50,12 @@ const StoresCard = () => {
     { title: "Benefits", items: BENEFITS_CHOICES.map(choice => product.benefits?.includes(choice) ? choice : `${choice} (In progress)`) },
   ];
 
+  const handleLogoClick = () => {
+    if (store) {
+      navigate(`/store/${store.id}`); 
+    }
+  };
+
   return (
     <div className="h-screen w-screen flex flex-col items-center">
       <NavbarImg />
@@ -56,18 +63,16 @@ const StoresCard = () => {
       <div className="product-img justify-center items-center h-[24rem]">
           <ProductGallery images={product.images.map((img) => img.image_url)}/>
       </div>
-
-
         <div className="product-detail w-128 h-[26rem]">
           <div className="store-detail flex flex-col justify-center gap-2">
             <p className="text-2xl">{product.name}</p>
             <p className="text-gray-500 text-xs">
               {product.details}
             </p>
-          <a href="" className="flex items-center gap-2">
+          <div className="flex items-center gap-2 hover:text-blue-600 hover:underline cursor-pointer" onClick={handleLogoClick}>
             <img src={store.logo} alt={store.name} className="w-8 rounded-full"/>
-            <p className="text-xs">{store.name}</p>
-          </a>
+            <p className="text-xs text-blue-600">{store.name}</p>
+          </div>
             <div className="contact grid grid-cols-2 gap-2 py-1">
               <div className="address flex gap-1 items-center border justify-center rounded-full py-1">
                 <HiMiniHome className="text-xl" />

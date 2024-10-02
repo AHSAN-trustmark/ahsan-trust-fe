@@ -9,6 +9,7 @@ export interface Store {
   instagram: string;
   logo: string;
   ActiveDate: string;
+  products: Product[]
 }
 
 export interface News {

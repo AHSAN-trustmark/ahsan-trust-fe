@@ -7,14 +7,14 @@ export const links = [
     name: "Home",
     hash: "/",
   },
-  {
-    name: "News",
-    hash: "/news",
-  },
-  {
-    name: "Product",
-    hash: "/product",
-  },
+  // {
+  //   name: "News",
+  //   hash: "/news",
+  // },
+  // {
+  //   name: "Store",
+  //   hash: "/store",
+  // },
   {
     name: "About Us",
     hash: "/aboutus",
@@ -51,26 +51,4 @@ export const categoryFilters = [
   },
 ] as const;
 
-export const news = [
-  {
-    id: 1,
-    image: "",
-    title: "The things we need to check when we want to buy a house",
-    body: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia aspernatur",
-    date: "4 min read | 25 Apr 2021",
-  },
-  {
-    id: 2,
-    image: "/assets/Image1.png",
-    title: "The things we need to check when we want to buy a house",
-    body: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia aspernatur",
-    date: "4 min read | 25 Apr 2021",
-  },
-  {
-    id: 3,
-    image: "/assets/Image1.png",
-    title: "The things we need to check when we want to buy a house",
-    body: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia aspernatur",
-    date: "4 min read | 25 Apr 2021",
-  },
-];
+
