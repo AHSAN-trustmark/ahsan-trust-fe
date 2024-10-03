@@ -75,3 +75,17 @@ export const getNewsById = async (id: string): Promise<News> => {
     throw error;
   }
 };
+
+export const registerForm = async(form: FormData) =>{
+  try {
+    const response = await api.post(`/register/product`, form, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Error posting form data:", error);
+    throw error; 
+  }
+}

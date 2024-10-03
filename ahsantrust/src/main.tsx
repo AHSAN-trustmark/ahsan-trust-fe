@@ -9,6 +9,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NewsDetail from "components/NewsDetail";
 import { AboutUs } from "pages/AboutUs.tsx";
 import {Store} from 'pages/Store.tsx'
+import {Register}  from "pages/Register.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -21,6 +22,7 @@ createRoot(document.getElementById("root")!).render(
         <Route path="/news" element={<AhsanTrustNews />} />
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/store/:id" element={< Store/>} />
+        <Route path="/register" element={< Register/>} />
       </Routes>
     </Router>
   </StrictMode>
