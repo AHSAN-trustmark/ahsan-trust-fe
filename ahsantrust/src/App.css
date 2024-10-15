@@ -425,9 +425,40 @@ body {
   transform: translate(-50%, -50%);
 }
 
+.wavy-button {
+  position: relative;
+  overflow: hidden;
+  padding: 10px 20px;
+  background: #3498db;
+  border: none;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+}
+
+.wavy-button:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(120deg, rgba(255,255,255,0.3), rgba(255,255,255,0));
+  transform: skewX(-25deg);
+  transition: all 0.7s ease-in-out;
+}
+
+.wavy-button:hover:before {
+  left: 100%;
+}
 
 
-/* Responsiveness
+
+
+/* Responsiveness */
 
 @media (max-width: 1332px) {
   .header-right {
@@ -486,10 +517,10 @@ body {
   .header-right-small-device {
     display: block;
   }
-} */
+} 
 
-/* @media (max-width: 1270px) {
+@media (max-width: 1270px) {
   .header-right img {
     display: none;
   }
-} */
+}

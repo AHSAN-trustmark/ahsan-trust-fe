@@ -101,7 +101,7 @@ const RegisterProductForm = () => {
         </div>
       )}
 
-      <div className="max-w-2xl mx-auto p-8 mt-5 bg-white shadow-lg rounded-2xl relative">
+      <div className="max-w-2xl mx-auto p-8 mt-5 bg-white bg-opacity-90 shadow-lg rounded-2xl relative">
         <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">
           Register Your Product
         </h2>
@@ -238,7 +238,7 @@ const RegisterProductForm = () => {
           {/* Submit Button */}
           <button
             type="submit"
-            className="w-full py-3 px-6 text-white bg-blue-600 rounded-lg shadow-md hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition ease-in-out duration-300"
+            className="w-full py-3 px-6 text-white bg-blue-600 rounded-lg shadow-md hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition ease-in-out duration-300 wavy-button"
             disabled={loading}
           >
             {loading ? "Submitting..." : "Register Product"}

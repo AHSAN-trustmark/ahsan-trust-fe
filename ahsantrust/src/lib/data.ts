@@ -52,3 +52,32 @@ export const categoryFilters = [
 ] as const;
 
 
+export const ahsan = [
+  {
+    letter: 'A',
+    title: 'Authenticity',
+    description: 'The products have a clear origin, are produced in accordance with Islamic principles, and are environmentally responsible.'
+  },
+  {
+    letter: 'H',
+    title: 'Humanity',
+    description: 'The products are made without the use of unfair labor practices, ensuring the rights and welfare of the producers are protected and respecting the consumers.'
+  },
+  {
+    letter: 'S',
+    title: 'Standard',
+    description: 'The products have passed quality tests, ensuring safety and effectiveness.'
+  },
+  {
+    letter: 'A',
+    title: 'Accredited',
+    description: 'The products have been inspected and certified by the AHSAN Trustmark Quality Assurance Committee.'
+  },
+  {
+    letter: 'N',
+    title: 'Network',
+    description: 'The products are part of a business network that supports sustainable trade and fair pricing.'
+  }
+];
+
+
