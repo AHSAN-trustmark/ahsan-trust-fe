@@ -5,7 +5,7 @@ import { ahsan } from "lib/data";
 
 export function AboutUs() {
   return (
-    <div className="h-screen w-screen flex flex-col items-center">
+    <div className="">
       <NavbarImg />
       <div className="relative w-full h-1/2 mt-0">
         <img src={BgAboutUs} alt="" className="h-full w-full object-cover" />

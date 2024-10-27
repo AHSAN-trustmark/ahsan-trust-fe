@@ -11,14 +11,14 @@ export const links = [
     name: "Register",
     hash: "/register",
   },
-  // {
-  //   name: "Store",
-  //   hash: "/store",
-  // },
   {
     name: "About Us",
     hash: "/aboutus",
   },
+  {
+    name: "Store",
+    hash:"/all-products"
+  }
 ] as const;
 
 export const partnership = [

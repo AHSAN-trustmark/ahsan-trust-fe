@@ -60,6 +60,7 @@ export function ProductFooter() {
         <FaChevronLeft />
       </button>
       <div className="card-container flex gap-2 ">
+        {products&& <p></p>}
         {visibleStores.map((products) => (
           <div className="card" key={products.id}>
             <div

@@ -2,7 +2,7 @@ import AhsanTrustLogo from "components/shared/ahsanTrustLogo";
 
 const Footer = () => {
   return (
-    <footer className="mt-36 flex items-center justify-between mb-5">
+    <footer className="mt-5 flex items-center justify-between mb-5">
       <AhsanTrustLogo />
       <span className="text-sm leading-6 text-darkGrey">
         © 2024 AHSAN Trustmark. All rights reserved.

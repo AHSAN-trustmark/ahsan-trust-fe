@@ -10,6 +10,7 @@ import NewsDetail from "components/NewsDetail";
 import { AboutUs } from "pages/AboutUs.tsx";
 import {Store} from 'pages/Store.tsx'
 import {Register}  from "pages/Register.tsx";
+import {AllProducts}  from "pages/AllProduct.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -23,6 +24,7 @@ createRoot(document.getElementById("root")!).render(
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/store/:id" element={< Store/>} />
         <Route path="/register" element={< Register/>} />
+        <Route path="/all-products" element={< AllProducts />} />
       </Routes>
     </Router>
   </StrictMode>
