@@ -40,7 +40,7 @@ export function AllProducts() {
           {products.map((product) => (
             <div key={product.id} className="p-6 flex flex-col items-center">
               <img
-                className="w-full h-60 object-cover hover:grow hover:shadow-lg" // Fixed width and height with object-cover
+                className="w-full h-60 object-cover hover:grow hover:shadow-lg rounded-lg" // Fixed width and height with object-cover
                 src={product.images[0].image_url}
                 alt={product.name || "Product Name"}
               />
