@@ -31,9 +31,11 @@ const RegisterProductForm: React.FC = () => {
     logo: null,
     product_image: null,
     accept_criteria: false,
-    criteria: Object.fromEntries(criteriaSteps.flatMap(step => 
-      step.subCriteria.map(sub => [sub.key, false])
-    )) as Record<string, boolean>,
+    criteria: Object.fromEntries(
+      criteriaSteps.flatMap((step) =>
+        step.subCriteria.map((sub) => [sub.key, false])
+      )
+    ) as Record<string, boolean>,
   });
 
   const [currentStep, setCurrentStep] = useState<number>(1);
@@ -141,7 +143,6 @@ const RegisterProductForm: React.FC = () => {
     for (let pair of form.entries()) {
       console.log(pair[0] + ": " + pair[1]);
     }
-
 
     try {
       const response = await registerForm(form);
@@ -434,6 +435,13 @@ const RegisterProductForm: React.FC = () => {
             ) : (
               <div>{submissionMessage}</div>
             )}
+          </div>
+        </div>
+      )}
+      {success && (
+        <div className="fixed inset-0 bg-gray-700 bg-opacity-50 flex items-center justify-center">
+          <div className="bg-white p-6 rounded shadow-lg text-center">
+            <p className="text-green-500">Product registered successfully!</p>
           </div>
         </div>
       )}
