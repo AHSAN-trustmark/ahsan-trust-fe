@@ -13,11 +13,17 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v2
 
+      # Debug DNS Resolution
+      - name: Debug DNS Resolution
+        run: |
+          ping -c 4 ${{ secrets.HOST_SERVER }}
+
+      # Debug SSH Connection
       - name: Debug SSH Connection
         run: |
           echo "${{ secrets.HOST_SSH_PRIVATE_KEY }}" > private_key
           chmod 600 private_key
-          ssh -v -i private_key -o StrictHostKeyChecking=no ${{ secrets.HOST_USER_NAME }}@${{ secrets.HOST_SERVER }} echo "SSH Connected"
+          ssh -v -i private_key -o StrictHostKeyChecking=no root@${{ secrets.HOST_SERVER }} echo "SSH Connected"
           rm -f private_key
 
       - name: Set Up QEMU
