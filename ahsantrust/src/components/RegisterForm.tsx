@@ -368,7 +368,7 @@ const RegisterProductForm: React.FC = () => {
   };
 
   return (
-    <div className="flex items-center justify-center p-5">
+    <div className="flex items-center justify-center p-5 mt-20">
       <div className="h-144 w-144 flex-shrink-0">
         <img
           src={hijab}
