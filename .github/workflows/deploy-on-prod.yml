@@ -44,8 +44,7 @@ jobs:
           mkdir deploy-ahsan-frontend
           cp docker-compose.yml deploy-ahsan-frontend/docker-compose.yml
           cd deploy-ahsan-frontend
-          export DOCKER_HOST=tcp://${{ secrets.HOST_SERVER }}:2375
-          docker compose down
-          docker compose pull
-          docker compose up -d
+          docker-compose -H ${{ secrets.HOST_SERVER }} down
+          docker-compose -H ${{ secrets.HOST_SERVER }} pull
+          docker-compose -H ${{ secrets.HOST_SERVER }} up -d
 
