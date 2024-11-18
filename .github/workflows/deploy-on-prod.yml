@@ -27,6 +27,10 @@ jobs:
           context: .
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/ahsanfrontend:latest
+      - name: Debug SSH Key
+        run: |
+          echo "${{ secrets.HOST_SSH_PRIVATE_KEY }}" > debug_key
+          cat debug_key
       - name: copy file via ssh password
         uses: appleboy/scp-action@v0.1.4
         with:
