@@ -42,6 +42,8 @@ jobs:
       - name: prepare the docker-compose run
         run: |
           mkdir deploy-ahsan-frontend
+          ls -l
+          echo ${{secrets.HOST_SERVER}}
           cp docker-compose.yml deploy-ahsan-frontend/docker-compose.yml
           cd deploy-ahsan-frontend
           docker-compose -H ${{ secrets.HOST_SERVER }} down
